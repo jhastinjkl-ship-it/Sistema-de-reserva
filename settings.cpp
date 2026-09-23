@@ -119,12 +119,12 @@ void simularReservas(char** sala, int filas, int columnas, int cantidad) //opcio
 
     int hechas = 0;
     while (hechas < cantidad) {
-        int f = rand() % filas;
-        int c = rand() % columnas;
-        if (sala[f][c] == 'L') {
-            sala[f][c] = 'R';
+        int f = rand()%filas;
+        int c = rand()%columnas;
+        if (sala[f][c]=='L') {
+            sala[f][c]=='R';
             hechas++;
-            cout << "Reserva " << hechas << ": Fila " << f + 1 << " - Asiento " << c + 1 << endl;
+            cout<<"Reserva "<<hechas<<": Fila "<<f + 1 <<"- Asiento "<<c + 1<<endl;
         }
     }
 }
@@ -133,7 +133,7 @@ int mostrarEstadistica(char** sala, int filas, int columnas, int* reservasPorFil
 {
     int totalReservados = 0;
 
-    for (int f = 0; f < filas; f++) {
+    for (int f=0 ; f<filas; f++) {
         reservasPorFila[f]=0;
         for (int c=0; c<columnas; c++){
             if (sala[f][c]=='R') {
