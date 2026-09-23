@@ -33,7 +33,12 @@ void AsientoSiNo(char** sala, int filas, int columnas) //Mostrará cantidad de a
     int libres=0, ocupados=0;
     for (int f=0; f<filas; f++)
         for (int c=0; c<columnas; c++)
-            (sala[f][c]=='L') ? libres++ : ocupados++;
+            if (sala[f][c]=='L') {
+                libres++;
+                    }
+            else {
+                ocupados++;
+                }
 
     cout<<"Asientos libres: "<<libres<<endl;
     cout<<"Asientos ocupados: "<<ocupados<<endl;
