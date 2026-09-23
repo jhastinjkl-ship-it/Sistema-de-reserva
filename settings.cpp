@@ -6,9 +6,9 @@ using namespace std;
 char** crearSala(int filas, int columnas) //Usando reserva memoria dinamica
 {
     char** sala = new char*[filas];
-    for (int f = 0; f < filas; f++) {
+    for (int f=0; f<filas; f++) {
         sala[f] = new char[columnas];
-        for (int c = 0; c < columnas; c++) sala[f][c] = 'L';
+        for (int c=0; c<columnas; c++) sala[f][c] = 'L';
     }
     return sala;
 }
@@ -16,53 +16,55 @@ char** crearSala(int filas, int columnas) //Usando reserva memoria dinamica
 void matriz(char** sala, int filas, int columnas) //muestra la sala actual
 {
     cout << "\n ASIENTOS\n ";
-    for (int j = 1; j <= columnas; j++) cout << j << " ";
-    cout << endl;
+    for (int j=1; j<=columnas; j++) cout << j << " ";
+    cout<<endl;
     for (int i=0; i<filas; i++) {
-        cout << "Fila " << i+1 << " ";
-        for (int j = 0; j<columnas; j++) cout << sala[i][j] << " ";
-        cout << endl;
+        cout<<"Fila "<<i+1<<" ";
+        for (int j=0; j<columnas; j++) cout<<sala[i][j]<<" ";
+        cout<<endl;
     }
 }
 
 void AsientoSiNo(char** sala, int filas, int columnas) //Mostrará cantidad de asientos Libres y Ocupados
 {
-    int libres = 0, ocupados = 0;
-    for (int f = 0; f < filas; f++)
-        for (int c = 0; c < columnas; c++)
-            (sala[f][c] == 'L') ? libres++ : ocupados++;
+    int libres=0, ocupados=0;
+    for (int f=0; f<filas; f++)
+        for (int c=0; c<columnas; c++)
+            (sala[f][c]=='L') ? libres++ : ocupados++;
 
-    cout << "Asientos libres: " << libres << endl;
-    cout << "Asientos ocupados: " << ocupados << endl;
+    cout<<"Asientos libres: "<<libres<<endl;
+    cout<<"Asientos ocupados: "<<ocupados<<endl;
 }
 void Reserv_Cancel(char** sala, int filas, int columnas, int operacion  ) //Operaciones de reserva y cancelación de asientos.
 {
     int fila, asiento;
-    cout << "Ingrese fila : ";
-    cin >> fila;
-    cout << "Ingrese asiento : ";
-    cin >> asiento;
+    cout<<"Ingrese fila : ";
+    cin>>fila;
+    cout<<"Ingrese asiento : ";
+    cin>>asiento;
 
-    if (fila < 1 || fila > filas || asiento < 1 || asiento > columnas) {
+    if (fila<1 || fila>filas || asiento<1 || asiento>columnas) {
         cout << "Posicion invalida." << endl;
         return;
     }
 
-    int f = fila - 1, a = asiento - 1;
+    int f=fila - 1, a=asiento-1;
 
-    if (operacion == 1) { //reservar
-        if (sala[f][a] == 'L') {
-            sala[f][a] = 'R';
+    if (operacion==1) { //reservar
+        if (sala[f][a]=='L') {
+            sala[f][a]='R';
             cout << "Reserva realizada correctamente." << endl;
-            cout << "Fila : " << fila << endl << "Asiento : " << asiento << endl;
+            cout<<"Fila : "<<fila<<endl;
+            cout<<"Asiento : " << asiento << endl;
         } else {
-            cout << "El asiento ya se encuentra reservado." << endl;
+            cout<<"El asiento ya se encuentra reservado."<<endl;
         }
     } else { //cancelar
-        if (sala[f][a] == 'R') {
-            sala[f][a] = 'L';
-            cout << "Cancelacion realizada correctamente." << endl;
-            cout << "Fila : " << fila << endl << "Asiento : " << asiento << endl;
+        if (sala[f][a]=='R') {
+            sala[f][a]='L';
+            cout<<"Cancelacion realizada correctamente."<<endl;
+            cout<<"Fila : "<<fila<<endl;
+            cout<<"Asiento : "<<asiento<<endl;
         } else {
             cout << "El asiento ya se encuentra libre." << endl;
         }
@@ -71,11 +73,13 @@ void Reserv_Cancel(char** sala, int filas, int columnas, int operacion  ) //Oper
 
 void buscarAsiento(char** sala, int filas, int columnas, int personas) //Opción que permita buscar asientos consecutivos para un grupo de personas
 {
-    for (int f = 0; f < filas; f++) {
-        int consecutivos = 0, inicio = 0;
-        for (int c = 0; c < columnas; c++) {
-            if (sala[f][c] == 'L') {
-                if (consecutivos == 0) inicio = c;
+    for (int f=0; f<filas; f++) {
+        int consecutivos=0, inicio=0;
+        for (int c=0; c<columnas; c++) {
+            if (sala[f][c]=='L') {
+                if (consecutivos==0) {
+                    inicio=c;
+                }
                 consecutivos++;
                 if (consecutivos == personas) {
                     cout << "Se encontraron " << personas << " asientos consecutivos." << endl;
@@ -93,10 +97,12 @@ void buscarAsiento(char** sala, int filas, int columnas, int personas) //Opción
 
 void simularReservas(char** sala, int filas, int columnas, int cantidad) //opcion 6
 {
-    int libres = 0;
-    for (int f = 0; f < filas; f++)
-        for (int c = 0; c < columnas; c++)
-            if (sala[f][c] == 'L') libres++;
+    int libres=0;
+    for (int f=0; f<filas; f++)
+        for (int c=0; c<columnas; c++)
+            if (sala[f][c]=='L') {
+                libres++;
+            }
 
     if (cantidad > libres) {
         cout << "No hay suficientes asientos libres para simular " << cantidad << " reservas." << endl;
@@ -126,14 +132,14 @@ int mostrarEstadistica(char** sala, int filas, int columnas, int* reservasPorFil
         totalReservados += reservasPorFila[f];
     }
 
-    int total = filas * columnas;
-    int libres = total - totalReservados;
-    double porcentaje = (totalReservados * 100.0) / total;
+    int total=filas*columnas;
+    int libres=total-totalReservados;
+    double porcentaje=(totalReservados * 100.0) / total;
 
-    int filaMax = 0, filaMin = 0;
-    for (int f = 1; f < filas; f++) {
-        if (reservasPorFila[f] > reservasPorFila[filaMax]) filaMax = f;
-        if (reservasPorFila[f] < reservasPorFila[filaMin]) filaMin = f;
+    int filaMax=0, filaMin=0;
+    for (int f=1; f<filas; f++) {
+        if (reservasPorFila[f]>reservasPorFila[filaMax]) filaMax=f;
+        if (reservasPorFila[f]<reservasPorFila[filaMin]) filaMin=f;
     }
 
     cout << "\n================================\n";
@@ -152,11 +158,9 @@ int mostrarEstadistica(char** sala, int filas, int columnas, int* reservasPorFil
     return totalReservados;
 }
 
-void Apagar(char** sala, int filas, int columnas) //Opción 7 (Salir) para apagar el programa
+void Apagar(char** sala, int filas) //Opción 7 (Salir) para apagar el programa
 {
-    for (int f=0; f<filas;f++) {
-        delete[] sala[f];
+    for (int f=0; f<filas;f++) delete[] sala[f]; //Liberamos sala
+        delete[] sala; //Liberamos el arreglo de punteros
         cout<<"===Programa Cerrado==="<<endl;
-    }
-    
 }
