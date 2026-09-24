@@ -1,7 +1,10 @@
-//
-// Created by Jhastin on 9/11/2026.
-//
-
+/**
+ * Proyecto: Sistema de reserva de asientos para cine
+ * Estudiantes: 
+ * Leonardo Jhastin Herrera Navinta | 20261PRECS01006
+ * Benjamin Zevallos Bautista | 202520093
+ * Clase: enlace.h
+ */
 #ifndef UNTITLED1_ENLACE_H
 #define UNTITLED1_ENLACE_H
 

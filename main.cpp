@@ -1,3 +1,10 @@
+/**
+ * Proyecto: Sistema de reserva de asientos para cine
+ * Estudiantes: 
+ * Leonardo Jhastin Herrera Navinta | 20261PRECS01006
+ * Benjamin Zevallos Bautista | 202520093
+ * Clase: main.cpp
+ */
 #include <iostream>
 #include "enlace.h"
 using namespace std;
