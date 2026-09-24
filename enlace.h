@@ -12,6 +12,6 @@ void Reserv_Cancel(char** sala, int filas, int columnas, int operacion);
 void buscarAsiento(char** sala, int filas, int columnas, int personas);
 void simularReservas(char** sala, int filas, int columnas, int cantidad);
 int mostrarEstadistica(char** sala, int filas, int columnas, int* reservasPorFila);
-void Apagar(char** sala, int filas, int columnas);
+void Apagar(char** sala, int filas);
 
 #endif //UNTITLED1_ENLACE_H
