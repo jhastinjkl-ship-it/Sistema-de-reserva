@@ -7,11 +7,15 @@
  */
 #include <iostream>
 #include "enlace.h"
+
 using namespace std;
+
 int main()
 {
     srand(time(0));
-    int filas, columnas;
+    int filas, asientos;
+
+    // Solicitar ingreso de filas y asientos con validación para crear sala
     do {
         cout << "Ingrese numero de filas (5-10): ";
         cin >> filas;
@@ -19,10 +23,13 @@ int main()
 
     do {
         cout << "Ingrese numero de asientos por fila (8-15): ";
-        cin >> columnas;
-    } while (columnas < 8 || columnas > 15);
+        cin >> asientos;
+    } while (asientos < 8 || asientos > 15);
 
-    char** sala = crearSala(filas, columnas);
+    // Creara sala con la cantidad de filas y asientos ingresados
+    char** sala = crearSala(filas, asientos);
+
+    // Crear un arreglo para almacenar la cantidad de reservas por fila
     int* reservasPorFila = new int[filas];
 
     int opcion;
@@ -42,13 +49,13 @@ int main()
 
         switch (opcion) {
             case 1:
-                matriz(sala, filas, columnas);
+                matriz(sala, filas, asientos);
                 break;
             case 2:
-                Reserv_Cancel(sala, filas, columnas, 1);
+                Reserv_Cancel(sala, filas, asientos, 1);
                 break;
             case 3:
-                Reserv_Cancel(sala, filas, columnas, 2);
+                Reserv_Cancel(sala, filas, asientos, 2);
                 break;
             case 4: {
                 int personas;
@@ -58,7 +65,7 @@ int main()
                 break;
             }
             case 5:
-                mostrarEstadistica(sala, filas, columnas, reservasPorFila);
+                mostrarEstadistica(sala, filas, asientos, reservasPorFila);
                 break;
             case 6: {
                 int cantidad;

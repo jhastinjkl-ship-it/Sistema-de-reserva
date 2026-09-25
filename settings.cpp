@@ -7,6 +7,7 @@
  */
 #include <iostream>
 #include "enlace.h"
+#include <vector>
 using namespace std;
 
 //función para mostrar la matriz por defecto y los valores random de L y O
@@ -110,29 +111,38 @@ void buscarAsiento(char** sala, int filas, int columnas, int personas) //Opción
     cout<<"No se encontraron "<<personas<<" asientos consecutivos disponibles."<<endl;
 }
 
-void simularReservas(char** sala, int filas, int columnas, int cantidad) //opcion 6
+/**
+ * Esta función simula la reserva de asientos en la sala
+ * @param sala: puntero a un arreglo de punteros que representa la sala
+ * @param filas: cantidad de filas de la sala
+ * @param asientos: cantidad de asientos por fila
+ * @param cantidad: cantidad de reservas a simular
+ * @return: void (Imprime mensajes de las reservas hechas)
+ */
+void simularReservas(char** sala, int filas, int asientos, int cantidad)
 {
-    int libres=0;
-    for (int f=0; f<filas; f++)
-        for (int c=0; c<columnas; c++)
+    vector<pair<int, int>> asientosLibres;
+    
+    for (int f = 0; f < filas; f++)
+        for (int c = 0; c < asientos; c++)
             if (sala[f][c]=='L') {
-                libres++;
+                asientosLibres.push_back({f, c});
             }
 
-    if (cantidad > libres) {
+    if (cantidad > int(asientosLibres.size())) {
         cout<<"No hay suficientes asientos libres para simular "<<cantidad<<" reservas."<<endl;
         return;
     }
 
-    int hechas = 0;
-    while (hechas < cantidad) {
-        int f = rand()%filas;
-        int c = rand()%columnas;
-        if (sala[f][c]=='L') {
-            sala[f][c]=='R';
-            hechas++;
-            cout<<"Reserva "<<hechas<<": Fila "<<f + 1 <<"- Asiento "<<c + 1<<endl;
-        }
+    for (int reservasHechas = 1; reservasHechas <= cantidad; reservasHechas++) {
+        int index = rand() % asientosLibres.size();
+        int fila = asientosLibres[index].first;
+        int asiento = asientosLibres[index].second;
+        cout<<"Reserva "<< reservasHechas <<": Fila "<<fila + 1 <<"- Asiento "<< asiento + 1<<endl;
+
+        // Quitar la posición elegida para no repetirla
+        asientosLibres[index] = asientosLibres.back();
+        asientosLibres.pop_back();
     }
 }
 
