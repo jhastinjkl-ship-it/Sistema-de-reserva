@@ -10,17 +10,24 @@
 #include <vector>
 using namespace std;
 
-//función para mostrar la matriz por defecto y los valores random de L y O
-char** crearSala(int filas, int columnas) //Usando reserva memoria dinamica
+/**
+ * Esta función crea la sala con la cantidad de filas y asientos ingresados por el usuario
+ * @param filas: cantidad de filas de la sala
+ * @param asientos: cantidad de asientos por fila
+ * @return: retorna un puntero a un arreglo de punteros que representa la sala
+ */
+char** crearSala(int filas, int asientos) //Usando reserva memoria dinamica
 {
     char** sala = new char*[filas];
-    for (int f=0; f<filas; f++) {
-        sala[f]=new char[columnas];
-        for (int c=0; c<columnas; c++)
-            {
-                sala[f][c] = 'L';
+
+    for (int f = 0; f < filas; f++) {
+        sala[f] = new char[asientos];
+
+        for (int c = 0; c < asientos; c++) {
+            sala[f][c] = 'L'; // L = Libre, R = Reservado
             }
     }
+    
     return sala;
 }
 

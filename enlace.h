@@ -8,7 +8,8 @@
 #ifndef UNTITLED1_ENLACE_H
 #define UNTITLED1_ENLACE_H
 
-char** crearSala(int filas, int columnas);
+char** crearSala(int filas, int asientos);
+
 void matriz(char** sala, int filas, int columnas);
 void AsientoSiNo(char**sala, int filas, int columnas);
 void Reserv_Cancel(char** sala, int filas, int columnas, int operacion);
