@@ -58,10 +58,7 @@ int main()
                 gestionarReserva(sala, filas, asientos, 2);
                 break;
             case 4: {
-                int personas;
-                cout << "Ingrese cantidad de personas del grupo: ";
-                cin >> personas;
-                buscarAsiento(sala, filas, columnas, personas);
+                buscarAsientosConsecutivos(sala, filas, asientos);
                 break;
             }
             case 5:

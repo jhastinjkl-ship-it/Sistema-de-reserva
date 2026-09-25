@@ -15,7 +15,8 @@ void mostrarSala(char** sala, int filas, int asientos);
 void gestionarReserva(char** sala, int filas, int asientos, int operacion);
 
 void AsientoSiNo(char**sala, int filas, int columnas);
-void buscarAsiento(char** sala, int filas, int columnas, int personas);
+
+void buscarAsientosConsecutivos(char** sala, int filas, int asientos);
 
 void simularReservas(char** sala, int filas, int asientos, int cantidad);
 

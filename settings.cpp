@@ -25,7 +25,7 @@ char** crearSala(int filas, int asientos) //Usando reserva memoria dinamica
 
         for (int c = 0; c < asientos; c++) {
             sala[f][c] = 'L'; // L = Libre, R = Reservado
-            }
+        }
     }
     
     return sala;
@@ -121,22 +121,51 @@ void gestionarReserva(char** sala, int filas, int asientos, int operacion  ) //O
     }
 }
 
-void buscarAsiento(char** sala, int filas, int columnas, int personas) //Opción que permita buscar asientos consecutivos para un grupo de personas
+
+/**
+ * Esta función devuelve la cantidad de asientos consecutivos disponibles en la sala
+ * @param sala: puntero a un arreglo de punteros que representa la sala
+ * @param filas: cantidad de filas de la sala
+ * @param asientos: cantidad de asientos por fila
+ * @return: void (imprime el resultado de la búsqueda de asientos)
+ */
+void buscarAsientosConsecutivos(char** sala, int filas, int asientos)
 {
-    for (int f=0; f<filas; f++) {
+    int personas;
+    do {
+        cout << "Ingrese cantidad de personas del grupo: ";
+        cin >> personas;
+
+        if (personas < 1) {
+            cout << "Cantidad invalida. Intente nuevamente." << endl;
+        }
+
+        if (personas > asientos) {
+            cout << "No hay suficientes asientos en una fila para el grupo. Intente nuevamente." << endl;
+        }
+
+    } while (personas < 1 || personas > asientos);
+
+    for (int f = 0; f < filas; f++) {
+
         int consecutivos=0, inicio=0;
-        for (int c=0; c<columnas; c++) {
+
+        for (int c = 0; c < asientos; c++) {
+
             if (sala[f][c]=='L') {
-                if (consecutivos==0) {
-                    inicio=c;
+
+                if (consecutivos == 0) {
+                    inicio = c;
                 }
                 consecutivos++;
+
                 if (consecutivos == personas) {
                     cout<<"Se encontraron " << personas << " asientos consecutivos." << endl;
                     cout<<"Fila : " << f + 1 << endl;
                     cout<<"Asientos : " << inicio + 1 << " - "<<c + 1<<endl;
                     return;
                 }
+                
             } else {
                 consecutivos = 0;
             }
