@@ -49,7 +49,7 @@ int main()
 
         switch (opcion) {
             case 1:
-                matriz(sala, filas, asientos);
+                mostrarSala(sala, filas, asientos);
                 break;
             case 2:
                 Reserv_Cancel(sala, filas, asientos, 1);

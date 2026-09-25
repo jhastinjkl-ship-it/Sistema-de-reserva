@@ -31,14 +31,30 @@ char** crearSala(int filas, int asientos) //Usando reserva memoria dinamica
     return sala;
 }
 
-void matriz(char** sala, int filas, int columnas) //muestra la sala actual
+/**
+ * Esta función muestra la sala actualizada con las filas y asientos ingresados por el usuario
+ * @param sala: puntero a un arreglo de punteros que representa la sala
+ * @param filas: cantidad de filas de la sala
+ * @param asientos: cantidad de asientos por fila
+ * @return: void (Imprime la sala en la consola)
+ */
+void mostrarSala(char** sala, int filas, int asientos)
 {
     cout << "\n ASIENTOS\n ";
-    for (int j=1; j<=columnas; j++) cout << j << " ";
+
+    // Creamos una cabecera para los asientos
+    // 1 2 3 ... n
+    for (int cabecera = 1; cabecera <= asientos; cabecera++) {
+        cout << cabecera << " ";
+    }
     cout<<endl;
-    for (int i=0; i<filas; i++) {
-        cout<<"Fila "<<i+1<<" ";
-        for (int j=0; j<columnas; j++) cout<<sala[i][j]<<" ";
+
+    for (int f = 0; f < filas; f++) {
+        cout<<"Fila "<< f + 1 <<" ";
+
+        for (int c = 0; c < asientos; c++) {
+            cout<<sala[f][c]<<" ";
+        }
         cout<<endl;
     }
 }

@@ -10,7 +10,8 @@
 
 char** crearSala(int filas, int asientos);
 
-void matriz(char** sala, int filas, int columnas);
+void mostrarSala(char** sala, int filas, int asientos);
+
 void AsientoSiNo(char**sala, int filas, int columnas);
 void Reserv_Cancel(char** sala, int filas, int columnas, int operacion);
 void buscarAsiento(char** sala, int filas, int columnas, int personas);
