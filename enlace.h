@@ -20,7 +20,8 @@ void buscarAsientosConsecutivos(char** sala, int filas, int asientos);
 
 void simularReservas(char** sala, int filas, int asientos, int cantidad);
 
-int mostrarEstadistica(char** sala, int filas, int columnas, int* reservasPorFila);
+void mostrarEstadistica(char** sala, int filas, int asientos, int* reservasPorFila);
+
 void Apagar(char** sala, int filas);
 
 #endif //UNTITLED1_ENLACE_H

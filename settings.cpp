@@ -209,28 +209,44 @@ void simularReservas(char** sala, int filas, int asientos, int cantidad)
     }
 }
 
-int mostrarEstadistica(char** sala, int filas, int columnas, int* reservasPorFila) //opcion 5
+/**
+ * Esta función muestra las estadísticas de la sala
+ * @param sala: puntero a un arreglo de punteros que representa la sala
+ * @param filas: cantidad de filas de la sala
+ * @param columnas: cantidad de asientos por fila
+ * @param reservasPorFila: puntero a un arreglo que almacena la cantidad de reservas por fila
+ * @return: void (Imprime las estadísticas en la consola)
+ */
+void mostrarEstadistica(char** sala, int filas, int asientos, int* reservasPorFila)
 {
     int totalReservados = 0;
 
-    for (int f=0 ; f<filas; f++) {
+    for (int f = 0 ; f < filas; f++) {
         reservasPorFila[f]=0;
-        for (int c=0; c<columnas; c++){
-            if (sala[f][c]=='R') {
+
+        for (int c = 0; c < asientos; c++){
+            if (sala [f][c] =='R') {
                 reservasPorFila[f]++;
             }
-        totalReservados+=reservasPorFila[f];
         }
+
+        totalReservados += reservasPorFila[f];
     }
 
-    int total=filas*columnas;
-    int libres=total-totalReservados;
-    double porcentaje=(totalReservados * 100.0) / total;
+    int total = filas * asientos;
+    int libres = total - totalReservados;
+    double porcentaje = (totalReservados * 100.0) / total;
 
     int filaMax=0, filaMin=0;
-    for (int f=1; f<filas; f++) {
-        if (reservasPorFila[f]>reservasPorFila[filaMax]) filaMax=f;
-        if (reservasPorFila[f]<reservasPorFila[filaMin]) filaMin=f;
+    for (int f = 1; f < filas; f++) {
+        
+        if (reservasPorFila[f] > reservasPorFila[filaMax]) {
+            filaMax = f;
+        }
+        
+        if (reservasPorFila[f] < reservasPorFila[filaMin]){
+            filaMin = f;
+        }
     }
 
     cout<<"\n================================\n";
@@ -241,12 +257,13 @@ int mostrarEstadistica(char** sala, int filas, int columnas, int* reservasPorFil
     cout<<"Asientos disponibles : " <<libres<<endl;
     cout<<"Porcentaje de ocupacion : " <<porcentaje<<" %"<<endl;
     cout<<"Reservas por fila:" << endl;
-    for (int f=0; f<filas; f++)
+    
+    for (int f=0; f<filas; f++){
         cout<<"Fila "<<f + 1<<" : "<<reservasPorFila[f]<<endl;
+    }
+
     cout<<"Fila con mayor ocupacion: "<<filaMax + 1<<endl;
     cout<<"Fila con menor ocupacion: "<<filaMin + 1<<endl;
-
-    return totalReservados;
 }
 
 void Apagar(char** sala, int filas) //Opción 7 (Salir) para apagar el programa
