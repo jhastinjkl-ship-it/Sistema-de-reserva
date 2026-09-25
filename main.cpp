@@ -57,10 +57,9 @@ int main()
             case 3:
                 gestionarReserva(sala, filas, asientos, 2);
                 break;
-            case 4: {
+            case 4: 
                 buscarAsientosConsecutivos(sala, filas, asientos);
                 break;
-            }
             case 5:
                 mostrarEstadistica(sala, filas, asientos, reservasPorFila);
                 break;
