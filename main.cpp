@@ -63,13 +63,9 @@ int main()
             case 5:
                 mostrarEstadistica(sala, filas, asientos, reservasPorFila);
                 break;
-            case 6: {
-                int cantidad;
-                cout << "Ingrese cantidad de reservas a simular: ";
-                cin >> cantidad;
-                simularReservas(sala, filas, columnas, cantidad);
+            case 6: 
+                simularReservas(sala, filas, asientos);
                 break;
-            }
             case 7:
                 delete[] reservasPorFila;
                 Apagar(sala, filas);

@@ -182,8 +182,20 @@ void buscarAsientosConsecutivos(char** sala, int filas, int asientos)
  * @param cantidad: cantidad de reservas a simular
  * @return: void (Imprime mensajes de las reservas hechas)
  */
-void simularReservas(char** sala, int filas, int asientos, int cantidad)
+void simularReservas(char** sala, int filas, int asientos)
 {
+    int cantidad;
+    
+    do {
+        cout << "Ingrese cantidad de reservas a simular: ";
+        cin >> cantidad;
+
+        if (cantidad < 1) {
+            cout << "Cantidad invalida. Intente nuevamente." << endl;
+        }
+
+    } while (cantidad < 1);
+
     vector<pair<int, int>> asientosLibres;
     
     for (int f = 0; f < filas; f++)
