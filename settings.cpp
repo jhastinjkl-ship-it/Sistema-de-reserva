@@ -278,7 +278,7 @@ void mostrarEstadistica(char** sala, int filas, int asientos, int* reservasPorFi
     cout<<"Fila con menor ocupacion: "<<filaMin + 1<<endl;
 }
 
-void Apagar(char** sala, int filas) //Opción 7 (Salir) para apagar el programa
+void apagar(char** sala, int filas) //Opción 7 (Salir) para apagar el programa
 {
     for (int f=0; f<filas;f++) delete[] sala[f]; //Liberamos sala
         delete[] sala; //Liberamos el arreglo de punteros

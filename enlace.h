@@ -14,14 +14,12 @@ void mostrarSala(char** sala, int filas, int asientos);
 
 void gestionarReserva(char** sala, int filas, int asientos, int operacion);
 
-void AsientoSiNo(char**sala, int filas, int columnas);
-
 void buscarAsientosConsecutivos(char** sala, int filas, int asientos);
 
 void simularReservas(char** sala, int filas, int asientos);
 
 void mostrarEstadistica(char** sala, int filas, int asientos, int* reservasPorFila);
 
-void Apagar(char** sala, int filas);
+void apagar(char** sala, int filas);
 
 #endif //UNTITLED1_ENLACE_H

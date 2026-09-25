@@ -68,7 +68,7 @@ int main()
                 break;
             case 7:
                 delete[] reservasPorFila;
-                Apagar(sala, filas);
+                apagar(sala, filas);
                 break;
             default:
                 cout << "Opcion invalida. Intente nuevamente." << endl;
