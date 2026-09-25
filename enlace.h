@@ -12,8 +12,9 @@ char** crearSala(int filas, int asientos);
 
 void mostrarSala(char** sala, int filas, int asientos);
 
+void gestionarReserva(char** sala, int filas, int asientos, int operacion);
+
 void AsientoSiNo(char**sala, int filas, int columnas);
-void Reserv_Cancel(char** sala, int filas, int columnas, int operacion);
 void buscarAsiento(char** sala, int filas, int columnas, int personas);
 
 void simularReservas(char** sala, int filas, int asientos, int cantidad);

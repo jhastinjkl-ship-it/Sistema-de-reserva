@@ -52,10 +52,10 @@ int main()
                 mostrarSala(sala, filas, asientos);
                 break;
             case 2:
-                Reserv_Cancel(sala, filas, asientos, 1);
+                gestionarReserva(sala, filas, asientos, 1);
                 break;
             case 3:
-                Reserv_Cancel(sala, filas, asientos, 2);
+                gestionarReserva(sala, filas, asientos, 2);
                 break;
             case 4: {
                 int personas;

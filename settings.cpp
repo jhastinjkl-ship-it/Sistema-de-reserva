@@ -74,20 +74,31 @@ void AsientoSiNo(char** sala, int filas, int columnas) //Mostrará cantidad de a
     cout<<"Asientos libres: "<<libres<<endl;
     cout<<"Asientos ocupados: "<<ocupados<<endl;
 }
-void Reserv_Cancel(char** sala, int filas, int columnas, int operacion  ) //Operaciones de reserva y cancelación de asientos.
+
+/**
+ * Esta función gestiona la reserva y cancelación de asientos en la sala
+ * @param sala: puntero a un arreglo de punteros que representa la sala
+ * @param filas: cantidad de filas de la sala
+ * @param asientos: cantidad de asientos por fila
+ * @param operacion: 1 para reservar, 2 para cancelar
+ * @return: void (Imprime mensajes de confirmación o error)
+ */
+void gestionarReserva(char** sala, int filas, int asientos, int operacion  ) //Operaciones de reserva y cancelación de asientos.
 {
     int fila, asiento;
-    cout<<"Ingrese fila : ";
+
+    cout<<"Ingrese fila: ";
     cin>>fila;
-    cout<<"Ingrese asiento : ";
+
+    cout<<"Ingrese asiento: ";
     cin>>asiento;
 
-    if (fila<1 || fila>filas || asiento<1 || asiento>columnas) {
+    if (fila < 1 || fila > filas || asiento < 1 || asiento > asientos) {
         cout<<"Posicion invalida."<< endl;
         return;
     }
 
-    int f=fila - 1, a=asiento-1;
+    int f = fila - 1, a = asiento - 1;
 
     if (operacion==1) { //reservar
         if (sala[f][a]=='L') {
